@@ -16,6 +16,9 @@ ifndef HRLIBC_H
 // Print formatted output
 void print(const char *format, ...);
 
+// Get input from user
+int getinput(const char *format, ...);
+
 // Set memory block to a specific value
 void setmemory(void *ptr, int value, size_t num);
 
