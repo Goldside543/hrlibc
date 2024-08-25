@@ -16,6 +16,15 @@ void print(const char *format, ...) {
     va_end(args);
 }
 
+// Get input from user
+int getinput(const char *format, ...) {
+    va_list args;
+    va_start(args, format);
+    int result = vscanf(format, args);
+    va_end(args);
+    return result;
+}
+
 // Set memory block to a specific value
 void setmemory(void *ptr, int value, size_t num) {
     memset(ptr, value, num);
