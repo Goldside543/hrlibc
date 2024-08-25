@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: LGPL-2.0-only */
 
-ifndef HRLIBC_H
+#ifndef HRLIBC_H
 #define HRLIBC_H
 
 #include <stdio.h>
