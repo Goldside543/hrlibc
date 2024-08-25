@@ -8,6 +8,8 @@
  *
  */
 
+#include "hrlibc.h"
+
 // Print formatted output
 void print(const char *format, ...) {
     va_list args;
