@@ -7,6 +7,11 @@ ifndef HRLIBC_H
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include <ctype.h>
+#include <errno.h>
+#include <math.h>
+#include <limits.h>
+#include <float.h>
 
 void print(const char *format, ...);
 void setmemory(void *ptr, int value, size_t num);
