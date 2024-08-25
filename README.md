@@ -1,7 +1,7 @@
 # hrlibc
 C library striving to have human readable functions.
 # Installation
-If you're on Debian or a Debian-based OS, just use the Debian package provided at [the releases page](https://github.com/Goldside543/hrlibc/releases). <br> <br>
+If you're on Debian, a Debian-based OS, Red Hat Enterprise Linux, or Fedora, just use the package for that distro provided at [the releases page](https://github.com/Goldside543/hrlibc/releases). <br> <br>
 
 If not, follow the below guide to compile hrlibc from source. <br> <br>
 
