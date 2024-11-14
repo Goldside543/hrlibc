@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: LGPL-2.0-only */
+/* SPDX-License-Identifier: LGPL-2.1-only */
 
 #ifndef HRLIBC_H
 #define HRLIBC_H
@@ -12,6 +12,8 @@
 #include <math.h>
 #include <limits.h>
 #include <float.h>
+#include <time.h>
+#include <unistd.h>
 
 // Print formatted output
 void print(const char *format, ...);
@@ -22,58 +24,68 @@ int getinput(const char *format, ...);
 // Set memory block to a specific value
 void setmemory(void *ptr, int value, size_t num);
 
-// Copy string to destination
-char* copystring(char *dest, const char *src);
-
-// Get length of string
-size_t stringlength(const char *str);
-
-// Compare two strings
-int comparestrings(const char *str1, const char *str2);
-
 // Allocate memory
 void* allocate(size_t size);
 
 // Deallocate memory
 void deallocate(void *ptr);
 
-// Concatenate two strings
-char* concatenate(char *dest, const char *src);
+// Copy memory block
+void* copymemory(void *dest, const void *src, size_t num);
 
-// Tokenize a string
-char* tokenize(char *str, const char *delim);
+// Move memory block
+void* movememory(void *dest, const void *src, size_t num);
 
-// Convert string to integer
-int stringtoint(const char *str, char **endptr, int base);
-
-// Convert string to double
-double stringtodouble(const char *str, char **endptr);
-
-// Check if string is a number
-int isnumber(const char *str);
-
-// Get absolute value of an integer
-int absolute(int x);
-
-// Round a floating-point number to the nearest integer
-double roundnumber(double x);
-
-// Convert integer to string
-char* inttostring(int value, char *str, size_t size, int base);
-
-// Compare two memory blocks
+// Compare memory blocks
 int comparememory(const void *ptr1, const void *ptr2, size_t num);
 
-// Find a substring in a string
+// Find byte in memory
+void* findbyte(const void *ptr, int value, size_t num);
+
+// String operations
+char* copystring(char *dest, const char *src);
+char* concatenate(char *dest, const char *src);
+size_t stringlength(const char *str);
+int comparestrings(const char *str1, const char *str2);
 char* findsubstring(const char *haystack, const char *needle);
-
-// Convert to upper case
 void uppercase(char *str);
-
-// Convert to lower case
 void lowercase(char *str);
+char* tokenize(char *str, const char *delim);
 
-// Find the length of a memory block filled with a specific value
-size_t memorylength(const void *ptr, int value, size_t num);
+// Check if string is numeric
+int isnumber(const char *str);
+
+// Conversions
+int stringtoint(const char *str, char **endptr, int base);
+double stringtodouble(const char *str, char **endptr);
+char* inttostring(int value, char *str, size_t size, int base);
+char* doubletostring(double value, char *str, size_t size);
+
+// Math operations
+int absolute(int x);
+double roundnumber(double x);
+int min(int a, int b);
+int max(int a, int b);
+double squareroot(double x);
+double power(double base, double exponent);
+
+// File operations
+FILE* openfile(const char *filename, const char *mode);
+void closefile(FILE *file);
+char* readline(char *buffer, int size, FILE *file);
+int writeline(const char *str, FILE *file);
+int endoffile(FILE *file);
+int seekfile(FILE *file, long offset, int origin);
+long tellfile(FILE *file);
+void clearfileerror(FILE *file);
+
+// Utility
+void pauseprogram(double seconds);
+time_t currenttime();
+void exitprogram(int status);
+
+// Random number generation
+int randomint(int max);
+void seedrandom(unsigned int seed);
 
 #endif // HRLIBC_H
